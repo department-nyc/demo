@@ -5,5 +5,6 @@ export const Gallery = styled.div`
 `
 
 export const Slide = styled.div<{ isActive?: Boolean }>`
+    font-size: 20px;
     ${(props) => props.isActive && `color: red;`}
 `
