@@ -1,7 +1,7 @@
 import * as styles from './styles'
 
 type GalleryProps = {
-    slideCount?: Number
+    slideCount?: number
 }
 
 export const Gallery = ({ slideCount = 4 }: GalleryProps) => {

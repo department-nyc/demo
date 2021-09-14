@@ -1,6 +1,7 @@
 import { CountryProps } from '@/components/Countries/types'
 import { GET_COUNTRIES } from '@/graphql/countries'
 import { useQuery } from '@apollo/client'
+import { FunctionComponent } from 'react'
 import * as styled from './styles'
 
 const Country = ({ name, continent }: CountryProps) => {
@@ -11,7 +12,7 @@ const Country = ({ name, continent }: CountryProps) => {
     )
 }
 
-export const Countries: React.FunctionComponent<{}> = () => {
+export const Countries: FunctionComponent<{}> = () => {
     const { loading, error, data } = useQuery(GET_COUNTRIES)
 
     if (loading) return <>Loading...</>

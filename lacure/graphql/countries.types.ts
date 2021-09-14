@@ -1,6 +1,6 @@
 export type CountryGQLResponse = {
-    name: String
+    name: string
     continent: {
-        name: String
+        name: string
     }
 }

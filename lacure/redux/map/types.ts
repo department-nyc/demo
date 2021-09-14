@@ -1,12 +1,12 @@
 export type MapItem = {
-    title: String
+    title: string
 }
 
 export type MapBoundingBox = {
-    left: Number
-    bottom: Number
-    right: Number
-    top: Number
+    left: number
+    bottom: number
+    right: number
+    top: number
 }
 
 export type MapState = {
