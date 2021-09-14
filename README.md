@@ -2,7 +2,13 @@
 
 ## Stack overview
 
-- Next.js
-- Typescript
-- Storybook
-- Chromatic
+- next.js
+- typescript
+- storybook
+- chromatic
+- redux toolkit
+- styled-components
+
+Patterns
+
+- colocation

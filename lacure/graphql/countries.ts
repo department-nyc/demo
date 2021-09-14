@@ -1,0 +1,12 @@
+import { gql, useQuery } from '@apollo/client'
+
+export const GET_COUNTRIES = gql`
+    query GetCountries {
+        countries {
+            name
+            continent {
+                name
+            }
+        }
+    }
+`
