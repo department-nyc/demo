@@ -4,7 +4,7 @@ import { GET_COUNTRIES } from '@/graphql/countries'
 import { ApolloProvider } from '@apollo/client'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { MockedProvider } from '@apollo/client/testing'
-import { CountryProps } from '@/components/Countries/types'
+import { CountryGQLResponse } from '@/graphql/countries.types'
 
 export default {
     title: 'Countries',
@@ -38,7 +38,7 @@ const countryMocks = [
                     continent: {
                         name: 'Mocked Continent',
                     },
-                })) as CountryProps[],
+                })) as CountryGQLResponse[],
             },
         },
     },

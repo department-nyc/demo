@@ -1,6 +1,5 @@
-export type CountryProps = {
-    name: String
-    continent: {
-        name: String
-    }
+import { CountryGQLResponse } from '@/graphql/countries.types'
+
+export type CountryProps = CountryGQLResponse & {
+    // props
 }

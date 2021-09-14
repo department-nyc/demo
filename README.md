@@ -35,11 +35,19 @@ Storybook stories that aren't colocated
 `./styles`
 Styles that aren't colocated
 
-### ./types
+`./types`
 Types that aren't colocated
 
 - in file e.g. type X = {}
 - in component dir e.g. types.ts
 - in least common ancestor dir e.g. /folder-with-child-components/types.ts
 - in global types dir e.g. /types/*.ts
+
+
+## Connected Services, Continous Integration
+
+**Github Actions > Chromatic Publish**
+Chromatic receives latest commits for PR and integrates with Github for design process control  
+
+**Vercel** Vercel host publishes static site for every commit and integrates with Github
 

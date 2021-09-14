@@ -15,7 +15,7 @@ export const Countries: React.FunctionComponent<{}> = () => {
     const { loading, error, data } = useQuery(GET_COUNTRIES)
 
     if (loading) return <>Loading...</>
-    if (error) return <>Loading...{error.message}</>
+    if (error) return <>Error: {error.message}</>
 
     return <styled.Countries>{data.countries.map(Country)}</styled.Countries>
 }
