@@ -3,8 +3,9 @@ import client from '@/graphql/apollo-client'
 import { GET_COUNTRIES } from '@/graphql/countries'
 import { ApolloProvider } from '@apollo/client'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { MockedProvider } from '@apollo/client/testing'
+import { MockedProvider, MockedResponse } from '@apollo/client/testing'
 import { CountryGQLResponse } from '@/graphql/countries.types'
+import { GraphQLError } from 'graphql'
 
 export default {
     title: 'Countries',
@@ -25,7 +26,7 @@ const Template: ComponentStory<typeof Countries> = (args) => (
 export const UsingGraphQL = Template.bind({})
 UsingGraphQL.args = {}
 
-const countryMocks = [
+const countryMocks: MockedResponse[] = [
     {
         request: {
             query: GET_COUNTRIES,
@@ -49,6 +50,38 @@ UsingGraphQLMock.args = {}
 UsingGraphQLMock.decorators = [
     (Story) => (
         <MockedProvider mocks={countryMocks}>
+            <Story />
+        </MockedProvider>
+    ),
+]
+
+const failedMocks: MockedResponse[] = [
+    {
+        request: {
+            query: GET_COUNTRIES,
+            variables: {},
+        },
+        result: {
+            errors: [
+                new GraphQLError(
+                    'Some GraphQL error',
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    { code: 'ERROR' }
+                ),
+            ],
+        },
+    },
+]
+
+export const FailedResponse = Template.bind({})
+FailedResponse.args = {}
+FailedResponse.decorators = [
+    (Story) => (
+        <MockedProvider mocks={failedMocks}>
             <Story />
         </MockedProvider>
     ),

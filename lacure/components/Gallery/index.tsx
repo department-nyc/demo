@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import * as styles from './styles'
 
 type GalleryProps = {
