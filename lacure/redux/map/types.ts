@@ -10,7 +10,8 @@ export type MapBoundingBox = {
 }
 
 export type MapState = {
+    isInitialized: boolean
     items: MapItem[]
     mapBoundingBox: MapBoundingBox
-    isLoading: Boolean
+    isLoading: boolean
 }

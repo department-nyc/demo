@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import { ApolloProvider } from '@apollo/client'
 import store from '@/redux/store'
 import client from '@/graphql/apollo-client'
