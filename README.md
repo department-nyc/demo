@@ -13,7 +13,7 @@
 -   Set up `typescript-eslint` linter
     -   How much typing?
 -   More fleshed out `styled-components` patterns fitting project component library, like typography. How are variants defined, used, extended.
--   Fleshed out apollo + next.js state management example with SSR, stale/revalidate [(details)](#apollo)
+-   Fleshed out apollo + next.js state management example with static + stale/revalidate, SSR [(details)](#apollo)
 -   Consider phase 2+ features: authenticated experience, e-commerce [(details)](#phase-2)
 -   Hosting. Probably not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks / links in interface [(details)](#testing)
 -   Analytics [(details)](#analytics)
