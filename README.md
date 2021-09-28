@@ -106,17 +106,24 @@ Types that aren't colocated
 -   In least common ancestor dir e.g. /folder-with-child-components/types.ts
 -   In global types dir e.g. /types/\*.ts
 
-# Deployment process <span id="deployment-process"></span>
+# Development/deployment process <span id="deployment-process"></span>
+
+## Branching pattern
+
+Let's use an ultra-light [GitHub Flow](https://guides.github.com/introduction/flow/) branching process.
+
+> There's only one rule: anything in the main branch is always deployable.
+
+A note on Git Flow in 2020:
+
+> If your team is doing continuous delivery of software, I would suggest to adopt a much simpler workflow (like GitHub flow) instead of trying to shoehorn git-flow into your team. [(Source)](https://nvie.com/posts/a-successful-git-branching-model/)
 
 ## Individual developer
-
-Let's try a lean, more agile branching pattern:
-https://guides.github.com/introduction/flow/
 
 -   Create new branch
 -   Submit pull request against `develop`
 -   Review CI Chromatic storybook deployment
--   Review CI Chromatic pixel snapshot diffs (note: this workflow can be removed later)
+-   Review CI Chromatic pixel snapshot diffs
 -   Review CI Next.js build (OOTB Vercel, manual implementation self hosted)
 
 ## Production deployments
