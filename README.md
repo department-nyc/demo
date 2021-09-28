@@ -63,11 +63,6 @@ That said, Next.js is a great stack for "Static + Client Side Auth" experiences 
 
 We can always use SSR for authenticated experiences, and unless traffic is exceptional, there shouldn't be too many problems scaling this out.
 
-# Commands
-
--   `prettier` - checks all files against current prettier config
--   `prettier-fix` - applies prettier against all files
-
 # Stack overview
 
 -   next.js
