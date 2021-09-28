@@ -181,7 +181,9 @@ Requirements TBD.
 
 Generally speaking, SEO deliverables should be lead by a separate party.
 
-Search engines still do not reliably parse SPAs or client side code (especially non-Google) and they require markup on page load via Next.js `SSR` or crawler-specific `pre-rendering`.
+Search engines still do not reliably parse SPAs or client side code (especially non-Google) and they require markup on page load via Next.js static/SSR or crawler-specific `pre-rendering` if using client side rendering of critical data.
+
+Pre-rendering: https://developers.google.com/search/docs/advanced/javascript/dynamic-rendering
 
 # Analytics
 
