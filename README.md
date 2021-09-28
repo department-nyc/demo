@@ -10,6 +10,7 @@
 
     -   As needed testing dictated by complexity & risk
     -   Consider broad remote integration testing using puppeteer and live / develop environments
+    -   What is importance of preventing failures at all costs, vs fixing them quickly, post e-commerce?
 
 -   Set up `typescript-eslint` linter
     -   How much typing?
