@@ -2,15 +2,37 @@
 
 # To Do...
 
--   Prettier
-    -   Consider adding to linter. Note official docs say ["generally not recommended"](https://prettier.io/docs/en/integrating-with-linters.html) and that it's best to [run it in your editor](https://prettier.io/docs/en/editors.html)
-    -   ✅ Consider [pre-commit](https://prettier.io/docs/en/precommit.html) hook to ensure prettier is run regardless of developer coding environment
+-   ✅ Prettier [(more details...)](#prettier)
+-   ✅ Git hooks fallback for prettier [(more details...)](#git-hooks)
 -   Set up `typescript-eslint` linter
 -   How much typing?
 -   More fleshed out `styled-components` patterns fitting project component library, like typography. How are variants defined, used, extended.
--   [Fleshed out apollo + next.js state management example with SSR, stale/revalidate](#apollo)
--   [Consider phase 2+ features: authenticated experience, e-commerce](#phase-2)
+-   Fleshed out apollo + next.js state management example with SSR, stale/revalidate [(more details...)](#apollo)
+-   Consider phase 2+ features: authenticated experience, e-commerce [(more details...)](#phase-2)
 -   Hosting. Likely not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks
+
+## Prettier
+
+Prettier should be enabled directly in developers code editors.
+
+> To get the most out of Prettier, it’s recommended to run it from your editor. [(Source)](https://prettier.io/docs/en/editors.html)
+
+Note: It was suggested to add `prettier` as a linter, but it isn't recommended today due to high editor support today.
+
+> -   You end up with a lot of red squiggly lines in your editor, which gets annoying. Prettier is supposed to make you forget about formatting – and not be in your face about it!
+> -   They are slower than running Prettier directly.
+> -   They’re yet one layer of indirection where things may break.
+>     [(Source)](https://prettier.io/docs/en/integrating-with-linters.html)
+
+Prettier is also run on the `pre-commit` git hook against staged files (via `lint-staged`) to ensure dev environments that aren't set up properly or edits via terminal are guaranteed to be formatted.
+
+## Git hooks
+
+Git hooks are managed by the `husky` lib which provides a simple pattern & enables team sharing better than manually managing and distributing `.git/hooks`
+
+Hooks are shared in `.husky/` and committed to the repo.
+
+The new hooks directory is enabled by using `npm/yarn` `prepare` post install scripts.
 
 ## Apollo
 
