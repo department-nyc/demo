@@ -157,15 +157,23 @@ Every targeted element in a test should have a `test-` prefix in the DOM, commun
 
 # Hosting <span id="hosting"></span>
 
+## Vercel
+
 Vercel.com by Next.js is great for no-config deployment with tight Next.js coupling/patterns.
 
-It delivers quite a lot of features with low development overhead, and they have a infrastructure team that is highly responsive.
+It delivers quite a lot of features with low development overhead.
 
-If self hosting, features needed are:
+https://vercel.com/docs/concepts/limits/overview
+
+## Self hosting
+
+If self hosting, infrastructure needs will need to be handled by another party.
+
+Features desired
 
 -   Automated deployments from `main`, `develop` branches
--   Automated deployments for pull requests, ideally integrated with Github/etc interface or email
--   Changing environment variables for environments
+-   Rollbacks nice
+-   Automated deployments for pull requests & changes to PR branches (or all branches)
 
 # SEO
 
