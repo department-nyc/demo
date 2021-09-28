@@ -11,18 +11,14 @@
         "build-storybook": "build-storybook",
         "chromatic": "npx chromatic --project-token=67bce573d5aa",
         "prettier": "prettier --check .",
-        "prettier-fix": "prettier --write ."
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+        "prettier-fix": "prettier --write .",
+        "prepare": "cd ../ && husky install .husky",
+        "pre-commit": "echo 'pre-commit' && cd lacure && lint-staged"
     },
     "lint-staged": {
         "linters": {
-            "**/*": [
-                "prettier --write",
-                "git add"
+            "**/*.ts?(x)": [
+                "prettier --write"
             ]
         }
     },
