@@ -12,7 +12,7 @@
         "chromatic": "npx chromatic --project-token=67bce573d5aa",
         "prettier": "prettier --check .",
         "prettier-fix": "prettier --write .",
-        "prepare": "cd ../ && husky install .husky",
+        "prepare": "husky install .husky",
         "pre-commit": "echo 'linting staged *.ts(x)' && lint-staged"
     },
     "lint-staged": {
