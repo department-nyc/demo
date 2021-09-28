@@ -4,6 +4,7 @@
 
 -   ✅ Prettier [(details)](#prettier)
 -   ✅ Git hooks fallback for prettier [(details)](#git-hooks)
+-   Accessibility requirements
 -   Development/deployment process [(details)](#deployment-process)
 -   Testing details [(details)](#testing)
 
@@ -18,6 +19,8 @@
 -   Hosting. Probably not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks / links in interface [(details)](#testing)
 -   Analytics [(details)](#analytics)
 -   SEO [(details)](#seo)
+-   Browser support [(details)](#browser-support)
+-   Storybook stories need automatic controls
 
 ## Prettier
 
@@ -147,7 +150,7 @@ TDD is not a requirement, but testing should be leveraged for maximum bang for t
 
 ## Unit testing/integration testing
 
-On a case by case basis, unit testing via `jest` and integration testing via `testing library` should be used.
+On a case by case basis, unit testing, snapshot testing, and integration testing via `react testing library` should be used.
 
 ## Remote browser testing
 
@@ -188,3 +191,9 @@ Pre-rendering: https://developers.google.com/search/docs/advanced/javascript/dyn
 # Analytics
 
 Requirements TBD.
+
+# Browser support <span id="browser-support"></span>
+
+Browser support?
+
+-   IE11?
