@@ -13,14 +13,12 @@
         "prettier": "prettier --check .",
         "prettier-fix": "prettier --write .",
         "prepare": "cd ../ && husky install .husky",
-        "pre-commit": "echo 'pre-commit' && lint-staged"
+        "pre-commit": "echo 'linting staged *.ts(x)' && lint-staged"
     },
     "lint-staged": {
-        "linters": {
-            "**/*.ts?(x)": [
-                "prettier --write"
-            ]
-        }
+        "**/*.ts?(x)": [
+            "prettier --write"
+        ]
     },
     "dependencies": {
         "@apollo/client": "^3.4.11",
