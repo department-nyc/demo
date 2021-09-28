@@ -110,11 +110,11 @@ Types that aren't colocated
 
 ## Branching pattern
 
-Let's use an ultra-light [GitHub Flow](https://guides.github.com/introduction/flow/) branching process.
+Let's use an ultra-light [GitHub flow](https://guides.github.com/introduction/flow/) branching process.
 
 > There's only one rule: anything in the main branch is always deployable.
 
-A note on Git Flow in 2020:
+A note on the ubiquitous `git-flow` in 2020:
 
 > If your team is doing continuous delivery of software, I would suggest to adopt a much simpler workflow (like GitHub flow) instead of trying to shoehorn git-flow into your team. [(Source)](https://nvie.com/posts/a-successful-git-branching-model/)
 
