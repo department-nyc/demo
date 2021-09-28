@@ -2,14 +2,20 @@
 
 # To Do...
 
--   ✅ Prettier [(more details...)](#prettier)
--   ✅ Git hooks fallback for prettier [(more details...)](#git-hooks)
+-   ✅ Prettier [(details)](#prettier)
+-   ✅ Git hooks fallback for prettier [(details)](#git-hooks)
+-   Deployment process outline [(details)](#deployment-process)
+-   Testing details [(details)](#testing)
+
+    -   As needed testing dictated by complexity & risk
+    -   Consider broad remote integration testing using puppeteer and live / develop environments
+
 -   Set up `typescript-eslint` linter
--   How much typing?
+    -   How much typing?
 -   More fleshed out `styled-components` patterns fitting project component library, like typography. How are variants defined, used, extended.
--   Fleshed out apollo + next.js state management example with SSR, stale/revalidate [(more details...)](#apollo)
--   Consider phase 2+ features: authenticated experience, e-commerce [(more details...)](#phase-2)
--   Hosting. Likely not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks
+-   Fleshed out apollo + next.js state management example with SSR, stale/revalidate [(details)](#apollo)
+-   Consider phase 2+ features: authenticated experience, e-commerce [(details)](#phase-2)
+-   Hosting. Probably not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks / links in interface
 
 ## Prettier
 
@@ -17,28 +23,28 @@ Prettier should be enabled directly in developers code editors.
 
 > To get the most out of Prettier, it’s recommended to run it from your editor. [(Source)](https://prettier.io/docs/en/editors.html)
 
-Note: It was suggested to add `prettier` as a linter, but it isn't recommended today due to high editor support today.
+Note: we considered adding `prettier` as a linter, but it isn't recommended today due to high editor support today.
 
-> -   You end up with a lot of red squiggly lines in your editor, which gets annoying. Prettier is supposed to make you forget about formatting – and not be in your face about it!
-> -   They are slower than running Prettier directly.
-> -   They’re yet one layer of indirection where things may break.
->     [(Source)](https://prettier.io/docs/en/integrating-with-linters.html)
+> \- You end up with a lot of red squiggly lines in your editor, which gets annoying. Prettier is supposed to make you forget about formatting – and not be in your face about it!  
+> \- They are slower than running Prettier directly.  
+> \- They’re yet one layer of indirection where things may break.
+> [(Source)](https://prettier.io/docs/en/integrating-with-linters.html)
 
 Prettier is also run on the `pre-commit` git hook against staged files (via `lint-staged`) to ensure dev environments that aren't set up properly or edits via terminal are guaranteed to be formatted.
 
-## Git hooks
+## Git hooks via Husky <span id="git-hooks"></span>
 
 Git hooks are managed by the `husky` lib which provides a simple pattern & enables team sharing better than manually managing and distributing `.git/hooks`
 
-Hooks are shared in `.husky/` and committed to the repo.
+Hooks are stored in `.husky/` and committed to the repo.
 
-The new hooks directory is enabled by using `npm/yarn` `prepare` post install scripts.
+The new hooks directory is enabled by using `npm/yarn` `prepare` post install scripts automatically.
 
 ## Apollo
 
 Apollo is a GraphQL client, but much more, and as such, we will likely want to create a demo fully integrated with `next.js` and flesh out patterns.
 
-Explore `apollo` for..
+Explore Apollo for..
 
 -   Local `GraphQL` client
 -   State management library
@@ -46,9 +52,7 @@ Explore `apollo` for..
 -   Mocking
 -   API explorer? https://studio.apollographql.com/sandbox/explorer/
 
-## Consider phase 2+ requirements
-
-<a id="phase-2"></a>
+## Consider phase 2+ requirements <span id="phase-2"></span>
 
 The application is being validated against phase 1 requirements, but consider that phase 2+ involves a lot of likely complexities.
 
@@ -70,7 +74,7 @@ We can always use SSR for authenticated experiences, and unless traffic is excep
 -   typescript
 -   storybook
 -   chromatic
--   redux toolkit
+-   redux toolkit? (maybe replaced by apollo)
 -   styled-components
 
 # Structure
@@ -102,14 +106,43 @@ Styles that aren't colocated
 `./types`
 Types that aren't colocated
 
--   in file e.g. type X = {}
--   in component dir e.g. types.ts
--   in least common ancestor dir e.g. /folder-with-child-components/types.ts
--   in global types dir e.g. /types/\*.ts
+-   In file e.g. type X = {}
+-   In component dir e.g. types.ts
+-   In least common ancestor dir e.g. /folder-with-child-components/types.ts
+-   In global types dir e.g. /types/\*.ts
 
-# Connected Services, Continous Integration
+# Deployment process <span id="deployment-process"></span>
 
-**Github Actions > Chromatic Publish**
-Chromatic receives latest commits for PR and integrates with Github for design process control
+## Individual developer
 
-**Vercel** Vercel host publishes static site for every commit and integrates with Github
+Let's try a lean, more agile branching pattern:
+https://guides.github.com/introduction/flow/
+
+-   Create new branch
+-   Submit pull request against `develop`
+-   Review CI Chromatic storybook deployment
+-   Review CI Chromatic pixel snapshot diffs (note: this workflow can be removed later)
+-   Review CI Next.js build (OOTB Vercel, manual implementation self hosted)
+
+## Production deployments
+
+-   Ensure rollback process defined and ready
+-   Run tests (human or automated) against `develop` CD branch & site
+-   Automated remote integration tests should be run on `main` and `develop` site
+-   Merge `develop` to `main` when approved triggering production build
+
+# Testing
+
+## TDD
+
+TDD is not a requirement, but testing should be leveraged for maximum bang for the buck.
+
+## Unit testing/integration testing
+
+On a case by case basis, unit testing via `jest` and integration testing via `testing library` should be used.
+
+## Remote browser testing
+
+Puppeteer remote testing on the production and develop site is likely worthwhile using broad strokes to ensure tests are not fragile and provide maximum coverage with the lowest time investment in implementation and maintenance.
+
+Every targeted element in a test should have a `test-` prefix in the DOM, communicating to the developer/user there is a test dependency, and ensuring no arbitrary selectors are used in remote testing (reducing confidence).
