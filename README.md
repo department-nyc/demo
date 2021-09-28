@@ -1,4 +1,4 @@
-# LaCure Demo
+# Demo
 
 # To Do...
 
