@@ -118,6 +118,10 @@ A note on Git Flow in 2020:
 
 > If your team is doing continuous delivery of software, I would suggest to adopt a much simpler workflow (like GitHub flow) instead of trying to shoehorn git-flow into your team. [(Source)](https://nvie.com/posts/a-successful-git-branching-model/)
 
+## Branch security
+
+Let's make sure `main` and `develop` can't be pushed to.
+
 ## Individual developer
 
 -   Create new branch
