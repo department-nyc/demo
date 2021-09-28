@@ -4,7 +4,7 @@
 
 -   ✅ Prettier [(details)](#prettier)
 -   ✅ Git hooks fallback for prettier [(details)](#git-hooks)
--   Deployment process outline [(details)](#deployment-process)
+-   Development/deployment process [(details)](#deployment-process)
 -   Testing details [(details)](#testing)
 
     -   As needed testing dictated by complexity & risk
@@ -15,7 +15,9 @@
 -   More fleshed out `styled-components` patterns fitting project component library, like typography. How are variants defined, used, extended.
 -   Fleshed out apollo + next.js state management example with SSR, stale/revalidate [(details)](#apollo)
 -   Consider phase 2+ features: authenticated experience, e-commerce [(details)](#phase-2)
--   Hosting. Probably not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks / links in interface
+-   Hosting. Probably not using Vercel, so need plan for deployment, staging environments, builds for PRs, ideally github hooks / links in interface [(details)](#testing)
+-   Analytics [(details)](#analytics)
+-   SEO [(details)](#seo)
 
 ## Prettier
 
@@ -126,9 +128,9 @@ Let's make sure `main` and `develop` can't be pushed to.
 
 -   Create new branch
 -   Submit pull request against `develop`
--   Review CI Chromatic storybook deployment
--   Review CI Chromatic pixel snapshot diffs
--   Review CI Next.js build (OOTB Vercel, manual implementation self hosted)
+-   (optional) Review CI Chromatic storybook deployment
+-   (optional) Review CI Chromatic pixel snapshot diffs
+-   (optional) Review CI Next.js build (OOTB Vercel, manual implementation self hosted)
 
 ## Production deployments
 
@@ -152,3 +154,27 @@ On a case by case basis, unit testing via `jest` and integration testing via `te
 Puppeteer remote testing on the production and develop site is likely worthwhile using broad strokes to ensure tests are not fragile and provide maximum coverage with the lowest time investment in implementation and maintenance.
 
 Every targeted element in a test should have a `test-` prefix in the DOM, communicating to the developer/user there is a test dependency, and ensuring no arbitrary selectors are used in remote testing (reducing confidence).
+
+# Hosting <span id="hosting"></span>
+
+Vercel.com by Next.js is great for no-config deployment with tight Next.js coupling/patterns.
+
+It delivers quite a lot of features with low development overhead, and they have a infrastructure team that is highly responsive.
+
+If self hosting, features needed are:
+
+-   Automated deployments from `main`, `develop` branches
+-   Automated deployments for pull requests, ideally integrated with Github/etc interface or email
+-   Changing environment variables for environments
+
+# SEO
+
+Requirements TBD.
+
+Generally speaking, SEO deliverables should be lead by a separate party.
+
+Search engines still do not reliably parse SPAs or client side code (especially non-Google) and they require markup on page load via Next.js `SSR` or crawler-specific `pre-rendering`.
+
+# Analytics
+
+Requirements TBD.
